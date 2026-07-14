@@ -39,3 +39,41 @@ called IPTV and may be renamed to "Claude".
   skill to add new ones.
 - Work happens on `claude/*` branches; this repo's default branch currently is
   `claude/facebook-share-link-gm81rf` (the repo started empty).
+
+## Skills inventory (as of this session)
+
+Writing/output: `humanizer`, `personal-voice`, `linkedin-hook`, `fact-checker`,
+`prompt-master`, `handoff`, `image-edit-prompts`. Meta: `write-a-skill`.
+Drive backup/imaging: `carbon-copy-cloner`, `superduper` (Mac), `macrium-reflect`
+(Windows), `clonezilla` (bootable USB, cross-platform). No overlap needing a merge.
+
+## Environment constraints (this cloud sandbox — learned the hard way)
+
+- This runs in an ephemeral Linux cloud container, NOT on John's Mac. It cannot see
+  or touch his hard drive, Photos library, local files, or other sessions. Anything
+  "on his machine" must be done by giving him commands to run himself.
+- Hard-blocked at the proxy (all 403): facebook.com, youtube.com (+ every Invidious/
+  Piped mirror + yt-dlp tunnel), 1001tracklists.com, mixesdb.com, set79.com,
+  discogs.com, allmusic.com, rateyourmusic.com, soundcloud.com, argos.co.uk. So:
+  don't promise to fetch/download from these — hand John a `yt-dlp`/command instead.
+- WebSearch works but is a lagging Google index: it trails live sites by days and
+  barely indexes social/comment content. A retail "stock watch" built on WebSearch is
+  effectively blind to live stock changes (proven: XDJ-AN was in stock at Argos while
+  the hourly search still showed nothing). Set expectations accordingly.
+- Reading third-party public GitHub repos: `add_repo` refuses cross-owner adds when the
+  session already has repos from another owner. Workaround that worked: plain
+  `git clone` into the scratchpad, then read the code locally.
+
+## Lessons learned (don't repeat these)
+
+- Don't trust a YouTube title from a search snippet as proof of content. The
+  "Sasha & Digweed 6 Hour Set" link was a ~15-second clickbait clip (exposed only when
+  John's own download pulled 262 KB). Verify length/size before calling something "the
+  full thing".
+- Guru "Claude tips" infographics contradict each other (build .md files vs delete
+  them; the "Master Mode / act autonomously without instructions" prompt vs John's
+  documented preference to stay in control). Extract the ~30% that's real, bin the
+  enterprise ceremony, and never silently auto-mutate this repo between turns.
+- Long-running hourly `send_later`/Routine watches work but get noisy; only message
+  John when something actually changed, and be honest when the method can't detect
+  what he's asking for.
